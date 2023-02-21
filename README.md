@@ -8,15 +8,10 @@ Librairies utilisées :
 - Jest.js
 - vue3-lottie
 
-## Création de l'image docker
-``` 
-docker build -t cocktail-app -f ./Dockerfile .
+# Docker compose
 ```
-## Lancement d'un container
+docker compose up
 ```
-docker run -e VUE_APP_API_KEY=yourAPIKey cocktail-app
-```
-La clé API qui doit être utilisé par Vade pour l'application a été communiquée par mail.
 
 # Lancement de l'application
 
