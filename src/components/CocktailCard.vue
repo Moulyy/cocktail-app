@@ -37,17 +37,19 @@ export default {
     }
   },
   /** Lorsque le composant est monté, on va construire la liste des ingrédients à partir du cocktail reçu en props */
-  mounted() {
-    this.getIngredients();
+  created() {
+    if (this.cocktail) {
+      this.getIngredients();
+    }
   }
 }
 </script>
 
 <template>
-  <div @mouseover="isHover = true" @mouseout="isHover = false" class="card" :style="{ backgroundImage: 'url(' + cocktail.strDrinkThumb + ')' }">
+  <div v-if="cocktail" id="cocktail-card" @mouseover="isHover = true" @mouseout="isHover = false" class="card" :style="{ backgroundImage: 'url(' + cocktail.strDrinkThumb + ')' }">
     <div class="card-footer">
       <div class="font-nunito max-w-xs">
-        <div v-show="isHover" class="p-4">
+        <div v-show="isHover" id="ingredientsList" class="p-4">
           <div class="flex justify-center text-md mb-2">{{ cocktail.strDrink }}</div>
           <IngredientList :ingredients="ingredients"></IngredientList>
         </div>

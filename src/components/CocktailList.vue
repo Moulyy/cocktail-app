@@ -9,10 +9,16 @@ export default {
   data() {
     return {
       drinks: [],
+      displayError: false,
+      error: `Une erreur s'est produite. Veuillez réactualiser la page`
     };
   },
   async mounted() {
-    await this.getCocktailInformationsAsync();
+    try {
+      await this.getCocktailInformationsAsync();
+    } catch (error) {
+      this.displayError = true;
+    }
   },
   methods: {
     async getCocktailInformationsAsync() {
@@ -30,13 +36,16 @@ export default {
 
 <template>
   <div class="flex flex-col lg:flex-row items-center justify-center font-pacifico text-40 text-title my-6">. Cocktail .</div>
-  <div v-if="drinks" class="flex flex-col lg:flex-row gap-6 items-center">
+  <div v-if="drinks && !displayError" class="flex flex-col lg:flex-row gap-6 items-center">
     <CocktailCard v-if="drinks[0]" :cocktail="drinks[0]"></CocktailCard>
     <CocktailCard v-if="drinks[1]" :cocktail="drinks[1]"></CocktailCard>
     <CocktailCard v-if="drinks[2]" :cocktail="drinks[2]"></CocktailCard>
   </div>
+  <div v-if="displayError" id="error">
+    {{ error }}
+  </div>
   <div class="mt-6 mb-4 flex justify-center">
-    <ButtonComponent :onClick="onNewRandomCocktailClickAsync">
+    <ButtonComponent :onClick="onNewRandomCocktailClickAsync" id="newRandomCocktail">
       <div class="flex flew-row items-center gap-2">
         <div class="w-6 h-6 text-white">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
