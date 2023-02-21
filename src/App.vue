@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="bg-gradient-bg h-screen w-screen">
+    <div class="flex items-center justify-center h-screen w-full">
+      <div v-if="!isLoaded">
+        <LoaderComponent />
+      </div>
+      <div v-else>
+        <CocktailList />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CocktailList from './components/CocktailList.vue'
+import LoaderComponent from './components/LoaderComponent.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      isLoaded: false
+    }
+  },
   components: {
-    HelloWorld
+    CocktailList,
+    LoaderComponent,
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isLoaded = true;
+    }, 2500);
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>

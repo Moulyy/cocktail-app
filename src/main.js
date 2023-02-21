@@ -1,4 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
-createApp(App).mount('#app')
+import Vue3Lottie from 'vue3-lottie'
+import 'vue3-lottie/dist/style.css'
+import './styles/index.css'
+createApp(App).use(Vue3Lottie).mount('#app')
