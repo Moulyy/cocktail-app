@@ -1,5 +1,7 @@
 # Image de base
 FROM node:latest
+ARG VUE_APP_API_KEY
+ENV VUE_APP_API_KEY=$VUE_APP_API_KEY
 
 # Copier les fichiers de l'application
 COPY . /app
