@@ -48,9 +48,9 @@ export default {
 <template>
   <div v-if="cocktail" id="cocktail-card" @mouseover="isHover = true" @mouseout="isHover = false" class="card" :style="{ backgroundImage: 'url(' + cocktail.strDrinkThumb + ')' }">
     <div class="card-footer">
-      <div class="font-nunito max-w-xs">
+      <div class="font-nunito">
         <div v-show="isHover" id="ingredientsList" class="p-4">
-          <div class="flex justify-center text-md mb-2">{{ cocktail.strDrink }}</div>
+          <div class="flex justify-center text-md md:text-lg font-poppins mb-2">{{ cocktail.strDrink }}</div>
           <IngredientList :ingredients="ingredients"></IngredientList>
         </div>
         <div v-show="!isHover" class="footer-content p-4">{{ cocktail.strDrink }}</div>
@@ -62,13 +62,20 @@ export default {
 <style scoped>
 .card {
   position: relative;
-  width: 315px;
-  height: 150px;
+  width: 400px;
+  height: 400px;
   border-radius: 12px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 1300px) {
+  .card {
+    width: 315px;
+    height: 150px;
+  }
 }
 
 .card-footer {

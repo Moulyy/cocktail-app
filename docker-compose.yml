@@ -2,6 +2,6 @@ version: '3'
 
 services:
   cocktail:
-    image: Moulyy/cocktail-app:1.0
+    image: moulyy/cocktail-app:latest
     ports:
       - 8080:8080
