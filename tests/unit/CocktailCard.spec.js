@@ -61,7 +61,7 @@ describe("CocktailCard.vue", () => {
           strDrink: 'Mojito',
         }
       },
-      methods: {
+      mocks: {
         getIngredients: getIngredientsMock
       }
     })
@@ -97,5 +97,7 @@ describe("CocktailCard.vue", () => {
   
     // Vérifie que isHover a été mis à true
     expect(wrapper.vm.isHover).toBe(true)
+    await card.trigger('mouseout');
+    expect(wrapper.vm.isHover).toBe(false);
   })
 });
