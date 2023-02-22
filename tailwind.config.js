@@ -3,7 +3,7 @@ module.exports = {
   theme: {
       extend: {
         fontSize: {
-          '40': '40px',
+          '50': '50px',
         },
         fontFamily: {
           'nunito': ['Nunito', 'sans-serif'],
