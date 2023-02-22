@@ -1,17 +1,22 @@
 <script>
 export default {
   props: {
-    ingredients: {}
+    ingredients: {
+      type: Array,
+      required: true,
+      default: () => []
+  }
   },
 }
 </script>
 
 <template>
-  <ul class="flex flex-col flex-wrap max-h-24 max-w-xs text-xs overflow-hidden font-poppins">
+  <ul v-if="ingredients.length > 0" class="flex flex-col flex-wrap max-w-xs max-h-24 md:max-h-full overflow-hidden font-poppins">
     <li v-for="(ingredient, index) in ingredients" :key="index">
       - {{ ingredient }}
     </li>
   </ul>
+  <p v-else class="font-poppins">Aucun ingrédient trouvé.</p>
 </template>
 
 <style scoped>

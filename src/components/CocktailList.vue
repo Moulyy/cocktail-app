@@ -35,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <div class="flex flex-col lg:flex-row items-center justify-center font-pacifico text-40 text-title my-6">. Cocktail .</div>
+  <div class="flex flex-col lg:flex-row items-center justify-center font-pacifico text-50 text-title my-6">. Cocktail .</div>
   <div v-if="drinks && !displayError" class="flex flex-col lg:flex-row gap-6 items-center">
     <CocktailCard v-if="drinks[0]" :cocktail="drinks[0]"></CocktailCard>
     <CocktailCard v-if="drinks[1]" :cocktail="drinks[1]"></CocktailCard>
